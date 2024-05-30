@@ -1,6 +1,9 @@
 
 #root {
-  padding: 2rem;
+  display: grid;
+  padding: 20px;
+  grid-template-columns: 1fr;
+  grid-gap: 2px;
 }
 
 
