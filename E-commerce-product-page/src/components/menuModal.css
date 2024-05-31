@@ -20,7 +20,7 @@ input {
   position: fixed;
   top: 50%;
   transform: translate(0, -50%); /* Adjusted to align to the left */
-  width: 75vw;
+  width: 70vw;
   max-width: 350px;
   height: 100vh;
   padding: 25px;
