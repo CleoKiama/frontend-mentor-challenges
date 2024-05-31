@@ -29,11 +29,13 @@ const decrement = () => {
       className="object-cover h-10 w-10 absolute left-[2%]  rounded-3xl bg-white p-2 "
       onClick={increment}
      />
-      <img 
-      src= {images[currentIndex]}
-      alt= 'product image'
-      className="object-contain h-62 w-62"
-     />
+      <div className="h-62 w-62 ">
+        <img 
+                src= {images[currentIndex]}
+                alt= 'product image'
+                className="object-cover max-w-sm"
+            />
+      </div>
     <img 
       src= '/icon-next.svg'
       alt= 'next'

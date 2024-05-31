@@ -1,9 +1,11 @@
 
 #root {
   display: grid;
-  padding: 20px;
+  padding: 8px;
   grid-template-columns: 1fr;
-  grid-gap: 2px;
+  grid-gap: 4px;
+  margin : 0px auto 0px auto;
+  max-width: 375px;
 }
 
 

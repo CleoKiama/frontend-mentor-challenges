@@ -3,6 +3,14 @@ import { useState } from "react"
 
 export default function AddToCart () {
  const [quantity, setQuantity] = useState(0)
+  const decrement  = () => {
+    setQuantity (prev=>{
+    if (prev === 0){
+      return 0
+    }
+      return prev - 1
+    })
+  }
   return (
   <section > 
      <div className="flex flex-row items-center justify-between">
@@ -16,11 +24,11 @@ export default function AddToCart () {
        <input 
          type="image"
           src="/icon-minus.svg"
-          onClick={()=>setQuantity(quantity-1)}
+          onClick={decrement}
           alt="decrement"
        />
       </div>
-      <div className="flex flex-row items-center rounded-xl bg-orange-500 justify-center">
+      <div className="flex flex-row items-center rounded-xl bg-orange-500 justify-center mt-3">
        <img 
         src="/icon-cart.svg"
         alt="cart"
