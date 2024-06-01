@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import './menuModal.css';
+import './styles/menuModal.css';
 import NavMenu from './nav';
 
 const MenuModal = () => (

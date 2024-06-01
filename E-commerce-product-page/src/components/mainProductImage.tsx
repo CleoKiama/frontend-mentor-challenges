@@ -1,5 +1,4 @@
 import { useState } from "react"
-import './mainProductImage.css'
 
 
 export default function MainProductImage () {
@@ -22,26 +21,26 @@ const decrement = () => {
     })
  }
  return (
-    <div className="flex flex-row items-center relative">
+  <div className="flex flex-row items-center relative">
    <img 
       src= '/icon-previous.svg'
       alt= 'previous'
-      className="object-cover h-10 w-10 absolute left-[2%]  rounded-3xl bg-white p-2 "
+      className="object-cover h-8 w-8 absolute left-[2%]  rounded-3xl bg-white p-2 "
       onClick={increment}
      />
-      <div className="h-62 w-62 ">
+      <div className="h-62 w-full ">
         <img 
-                src= {images[currentIndex]}
-                alt= 'product image'
-                className="object-cover max-w-sm"
-            />
+        src= {images[currentIndex]}
+        alt= 'product image'
+        className="w-full max-w-full max-h-72 object-cover"
+        />
       </div>
     <img 
       src= '/icon-next.svg'
       alt= 'next'
-      className="object-cover h-10 w-10 absolute left-[87%]   rounded-3xl bg-white p-2"
+      className="object-cover h-8 w-8 absolute left-[87%]   rounded-3xl bg-white p-2"
       onClick={decrement}
      />
-      </div>
+  </div>
  )
 }
