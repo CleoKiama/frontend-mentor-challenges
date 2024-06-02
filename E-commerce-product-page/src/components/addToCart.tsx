@@ -39,8 +39,8 @@ export default function AddToCart () {
     } 
   }
   return (
-  <section > 
-     <div className="flex flex-row items-center justify-between">
+  <section className="md:flex flex-row items-center justify-around"> 
+     <div className="flex flex-row items-center justify-between md:min-w-24">
        <input 
          type="image"
           src="/icon-plus.svg"
@@ -55,7 +55,9 @@ export default function AddToCart () {
           alt="decrement"
        />
       </div>
-      <div onClick={addToCart} className="flex flex-row items-center cursor-pointer rounded-xl bg-orange-500 justify-center mt-3">
+      <div 
+      onClick={addToCart} 
+      className="flex flex-row items-center cursor-pointer rounded-xl bg-orange-500 justify-center mt-3 md:max-w-80 md:px-8">
        <img 
         src="/icon-cart.svg"
         alt="cart"

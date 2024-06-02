@@ -27,18 +27,22 @@ function App() {
 
   return <>
     <DataContext.Provider value={{data,setData}}>
-    <Header  />
+    <Header />
     <MainProductImage  />
+    <main className="flex flex-col gap-4 md:col-start-2">
     <h4 className="text-neutral-500 font-bold">sneaker company</h4>
     <h1 className="font-bold text-2xl">{data.product.name}</h1>
     <p className="text-neutral-500">{data.product.description}</p>
+    <div className="flex flex-row items-center md:block">
     <div className="flex flex-row items-center">
     <h5 className="text-2xl font-bold">${data.product.discountedPrice}</h5>
     <p className="ml-2 rounded-lg px-2 py-0.5 text-white bg-neutral-950">${data.product.discountPercentage}</p>
-    <p className="line-through text-neutral-600 ml-auto font-bold">${data.product.originalPrice}</p>
     </div>
-    <AddToCart />
-    </DataContext.Provider>
+    <p className="line-through text-neutral-600 ml-auto font-bold md:ml-0">${data.product.originalPrice}</p>
+        </div>
+        <AddToCart />
+      </main>
+        </DataContext.Provider>
     </>;
 }
 

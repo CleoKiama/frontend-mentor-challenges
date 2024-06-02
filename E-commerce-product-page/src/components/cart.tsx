@@ -3,15 +3,14 @@ import { useData } from "../App"
 
 const Cart =  () => {
   const dataRef = useData()
-  let cartElements : JSX.Element[]
+  let cartElements : JSX.Element[] | JSX.Element
   const handleDelete = (name:string) => {
    dataRef?.setData((prevData) => {
     const newCart = prevData.cart.filter((item) => item.name !== name)
     return {...prevData,cart:newCart}
    })
   }
-  if(dataRef) {
-   cartElements = dataRef.data.cart.map(( item,index ) => (
+   cartElements = dataRef!.data.cart.map(( item,index ) => (
    <div className="flex flex-row items-center w-full justify-between my-3" key = {index}>
     <img 
      src={item.imageUrl}
@@ -34,9 +33,10 @@ const Cart =  () => {
     />
     </div>
    ))
-  } else cartElements = [<div key="empty"></div>];
+   if(cartElements.length === 0)  cartElements = <div className="text-center text-neutral-500 pt-8">your cart is empty</div>
+  
  return <div className="w-full">
-  <h2 className="">Cart</h2>
+  <h2 className="border-b-2 border-b-neutral-200 pb-4 font-bold  pl-4">Cart</h2>
   {cartElements}
     {
     dataRef && dataRef.data.cart.length > 0 &&

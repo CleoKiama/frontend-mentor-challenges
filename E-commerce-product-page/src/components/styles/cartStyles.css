@@ -8,7 +8,7 @@ input {
 
 .PopoverContent {
   border-radius: 4px;
-  padding: 6px 12px;
+  padding: 6px 0px;
   height: fit-content;
   width: 92%;
   max-width: 320px;
