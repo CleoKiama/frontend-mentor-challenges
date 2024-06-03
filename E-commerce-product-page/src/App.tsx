@@ -28,7 +28,7 @@ function App() {
   return <>
     <DataContext.Provider value={{data,setData}}>
     <Header />
-    <MainProductImage  />
+    <MainProductImage isModal={false}  />
     <main className="flex flex-col gap-4 md:col-start-2">
     <h4 className="text-neutral-500 font-bold">sneaker company</h4>
     <h1 className="font-bold text-2xl">{data.product.name}</h1>

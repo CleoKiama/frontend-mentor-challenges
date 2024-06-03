@@ -1,8 +1,12 @@
 import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
 import clsx from "clsx"
+import MainProductImageModal from "./mainProductImageModal"
 
-export default function MainProductImage () {
+type props = {
+  isModal : boolean
+}
+export default function MainProductImage ({isModal}:props) {
  const [currentIndex , setCurrentIndex] = useState(0)
   const isDesktop =  useMediaQuery({ query: '(min-width: 768px)' })
   const images = ['/image-product-1.jpg','/image-product-2.jpg','/image-product-3.jpg','/image-product-4.jpg']
@@ -31,39 +35,48 @@ export default function MainProductImage () {
 const decrement = () => {
    setCurrentIndex(prev => {
       if(prev === 0) {
-         return images.length -1
+         return images.length - 1
       }
       return prev - 1
     })
  }
+  const showNavArrows = () => {
+    if(isModal) return true
+    else return !isDesktop
+  }
  return (
   <div className="flex flex-row items-center relative md:flex-col md:col-start-1">
       {
-        !isDesktop &&
+        showNavArrows()  &&
     <img 
       src= '/icon-previous.svg'
       alt= 'previous'
-      className="object-cover h-8 w-8 absolute left-[2%]  rounded-3xl bg-white p-2"
-      onClick={increment}
-     />
-      }
-        <img 
-        src= {images[currentIndex]}
-        alt= 'product image'
-        className="w-full max-w-full max-h-72 object-cover rounded-lg md:h-72 md:w-72 md:object-cover md:self-start"
-        />
-      {
-      !isDesktop &&
-    <img 
-      src= '/icon-next.svg'
-      alt= 'next'
-      className="object-cover h-8 w-8 absolute left-[87%]   rounded-3xl bg-white p-2"
+      className="object-cover h-8 w-8 absolute left-[2%] md:top-1/2  rounded-3xl bg-white p-2"
       onClick={decrement}
      />
       }
       {
+        isDesktop && !isModal ? <MainProductImageModal src={images[currentIndex]} />
+        :
+      <img 
+          src= {images[currentIndex]}
+        alt= 'product image'
+        className="w-full max-w-full max-h-72 object-cover rounded-lg md:h-96 md:w-96 md:object-cover md:self-start"
+        />
+
+      }
+      {
+        showNavArrows() &&
+    <img 
+      src= '/icon-next.svg'
+      alt= 'next'
+      className="object-cover h-8 w-8 absolute left-[87%] md:top-1/2   rounded-3xl bg-white p-2"
+      onClick={increment}
+     />
+      }
+      {
         isDesktop && 
-          <ul className="flex flex-row items-center gap-4 w-full mt-8">
+          <ul className="flex flex-row items-center gap-4 w-full mt-8  md:mt-24">
             {imgElements}
           </ul>
       }
